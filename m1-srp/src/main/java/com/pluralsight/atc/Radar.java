@@ -23,8 +23,8 @@ public class Radar {
                 .stream()
                 .filter(a -> {
                     var distance = (int) Math.sqrt(
-                            (originLat - a.lat()) * (originLat - a.lat()) +
-                                    (originLon - a.lon()) * (originLon - a.lon()));
+                            (this.originLat - a.lat()) * (this.originLat - a.lat()) +
+                            (this.originLon - a.lon()) * (this.originLon - a.lon()));
                     return distance <= effectiveRange;
                 })
                 .toList();
@@ -49,10 +49,10 @@ public class Radar {
         return sb.toString();
     }
 
-    public int distanceBetween(AircraftTarget firstTarget, AircraftTarget secondTarget) {
+    public int distanceBetween(AircraftTarget a1, AircraftTarget a2) {
         return (int) Math.sqrt(
-                (firstTarget.lat() - secondTarget.lat()) * (firstTarget.lat() - secondTarget.lat()) +
-                        (firstTarget.lon() - secondTarget.lon()) * (firstTarget.lon() - secondTarget.lon())
+                (a1.lat() - a2.lat()) * (a1.lat() - a2.lat()) +
+                (a1.lon() - a2.lon()) * (a1.lon() - a2.lon())
         );
     }
 }
