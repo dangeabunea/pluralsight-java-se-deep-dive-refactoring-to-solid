@@ -1,3 +1,3 @@
 rootProject.name = 'pluralsight-java-se-deep-dive-refactoring-to-solid'
 include 'm1-srp'
-include 'm1-spr-complete'
+include 'm1-srp-complete'
