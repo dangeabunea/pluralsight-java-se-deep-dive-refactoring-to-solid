@@ -15,7 +15,7 @@ public class Radar {
 
     public String getAircraftInRange(int range,
                                      List<AircraftTarget> allAircraft,
-                                     boolean latFirst) {
+                                     CoordinateOutputFormatter outputFormatter) {
         // Cannot exceed max range
         int effectiveRange = Math.min(range, maxRange);
 
@@ -29,30 +29,6 @@ public class Radar {
                 })
                 .toList();
 
-        var sb = new StringBuilder();
-        if (latFirst) {
-            aircraftInRange.forEach(a -> sb
-                    .append("[")
-                    .append(a.lat())
-                    .append(" ")
-                    .append(a.lon())
-                    .append("] "));
-        } else {
-            aircraftInRange.forEach(a -> sb
-                    .append("[")
-                    .append(a.lon())
-                    .append(" ")
-                    .append(a.lat())
-                    .append("] "));
-        }
-
-        return sb.toString();
-    }
-
-    public int distanceBetween(AircraftTarget a1, AircraftTarget a2) {
-        return (int) Math.sqrt(
-                (a1.lat() - a2.lat()) * (a1.lat() - a2.lat()) +
-                (a1.lon() - a2.lon()) * (a1.lon() - a2.lon())
-        );
+        return outputFormatter.parse(aircraftInRange);
     }
 }
