@@ -16,11 +16,9 @@ public class Application {
         var radar = new Radar(0, 0, 10);
 
         // lat first
-        var larFirstFormatter = new CoordinateOutputFormatter(true);
-        System.out.println(radar.getAircraftInRange(7, aircraft, larFirstFormatter));
+        System.out.println(radar.getAircraftInRange(7, aircraft, true));
 
         // lon first
-        var lonFirstFormatter = new CoordinateOutputFormatter(false);
-        System.out.println(radar.getAircraftInRange(7, aircraft, lonFirstFormatter));
+        System.out.println(radar.getAircraftInRange(7, aircraft, false));
     }
 }

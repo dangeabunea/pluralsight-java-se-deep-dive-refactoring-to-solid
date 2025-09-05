@@ -9,5 +9,13 @@ repositories {
     mavenCentral()
 }
 
+allprojects {
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(24))
+        }
+    }
+}
+
 dependencies {
 }
